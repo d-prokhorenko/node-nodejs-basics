@@ -11,12 +11,9 @@ const errorMessage = 'FS operation failed';
 const successfulMessage = 'The file has been deleted';
 
 const remove = async () => {
-  fs.access(targetFilePath, fs.F_OK, (err) => {
+  fs.unlink(targetFilePath, (err) => {
     if (err) throw new Error(errorMessage);
-    fs.unlink(targetFilePath, (err) => {
-      if (err) throw err;
-      console.log(successfulMessage);
-    });
+    console.log(successfulMessage);
   });
 };
 
