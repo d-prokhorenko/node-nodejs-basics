@@ -25,7 +25,6 @@ const performCalculations = async () => {
       })
     );
   }
-  console.log('before promises');
   Promise.allSettled(promises).then((data) =>
     console.log(data.map(({ value }) => value))
   );
